@@ -1,9 +1,10 @@
 updurl := "https://github.com/MGMV/Agents/raw/master/uptdate.ahk"
 SplashTextOn, , 60,Автообновление, Обновление. Ожидайте..`nНастраиваем систему обновления.
+RegRead, put2, HKEY_CURRENT_USER\SOTFWARE\www.gtasrv.ru\CR-MP\GenerationC, put2
 sleep, 5000
 SplashTextOn, , 60,Автообновление, Обновление. Ожидайте..`nСкачиваем обновленную версию.
-URLDownloadToFile, %updurl%, %A_Temp%\uptdate.ahk
+URLDownloadToFile, %updurl%, %put2%
 SplashTextOn, , 60,Автообновление, Обновление. Ожидайте..`nЗапускаем обновленную версию.
 sleep, 3000
-Run,  %A_Temp%\uptdate.ahk
+Run, % put2
 ExitApp
